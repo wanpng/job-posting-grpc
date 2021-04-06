@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package protos.service;
+
+option go_package = "github.com/wanpng/job-posting-grpc/grpc/service";
+
+service JobPostingService {
+    rpc GetJobSeekerHiddenJobsInSearch(GetJobSeekerJobsRequest) returns (GetJobSeekerJobsResponse);
+    rpc GetJobSeekerSavedJobs(GetJobSeekerJobsRequest) returns (GetJobSeekerJobsResponse);
+}
+
+
+message GetJobSeekerJobsRequest {
+    string jobseeker_id = 1;
+}
+
+message GetJobSeekerJobsResponse {
+    repeated string job_id = 1;
+}
