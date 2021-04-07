@@ -15,5 +15,9 @@ message GetJobSeekerJobsRequest {
 }
 
 message GetJobSeekerJobsResponse {
-    repeated string job_id = 1;
+    repeated Job jobs = 1;
+}
+
+message Job {
+    string job_id = 1;
 }
