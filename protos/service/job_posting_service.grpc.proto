@@ -5,8 +5,7 @@ package protos.service;
 option go_package = "github.com/wanpng/job-posting-grpc/grpc/service";
 
 service JobPostingService {
-    rpc GetJobSeekerHiddenJobsInSearch(GetJobSeekerJobsRequest) returns (GetJobSeekerJobsResponse);
-    rpc GetJobSeekerSavedJobs(GetJobSeekerJobsRequest) returns (GetJobSeekerJobsResponse);
+    rpc GetJobSeekerHiddenAndSavedJobsInSearch(GetJobSeekerJobsRequest) returns (GetJobSeekerJobsResponse);
 }
 
 
@@ -15,7 +14,8 @@ message GetJobSeekerJobsRequest {
 }
 
 message GetJobSeekerJobsResponse {
-    repeated Job jobs = 1;
+    repeated Job hiddenJobs = 1;
+    repeated Job savedJobs = 2;
 }
 
 message Job {
