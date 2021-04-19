@@ -6,16 +6,24 @@ option go_package = "github.com/wanpng/job-posting-grpc/grpc/service";
 
 service JobPostingService {
     rpc GetJobSeekerHiddenAndSavedJobsInSearch(GetJobSeekerJobsRequest) returns (GetJobSeekerJobsResponse);
+    rpc GetJobSeekerSkills(GetJobSeekerSkillsRequest) returns (GetJobSeekerSkillsResponse);
 }
-
 
 message GetJobSeekerJobsRequest {
     string jobseeker_id = 1;
 }
 
+message GetJobSeekerSkillsRequest {
+    string skill_id = 1;
+}
+
 message GetJobSeekerJobsResponse {
     repeated Job hiddenJobs = 1;
     repeated Job savedJobs = 2;
+}
+
+message GetJobSeekerSkillsResponse {
+    string status = 1;
 }
 
 message Job {
