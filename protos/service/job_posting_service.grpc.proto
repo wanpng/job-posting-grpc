@@ -4,8 +4,6 @@ package protos.service;
 
 option go_package = "github.com/wanpng/job-posting-grpc/grpc/service";
 
-import "protos/domain/applicationstatus.grpc.proto";
-
 service JobPostingService {
     rpc GetJobSeekerHiddenAndSavedJobsInSearch(GetJobSeekerJobsRequest) returns (GetJobSeekerJobsResponse);
     rpc GetApplicationStatus(GetApplicationStatusRequest) returns (GetApplicationStatusResponse);
@@ -31,5 +29,6 @@ message GetApplicationStatusRequest {
 }
 
 message GetApplicationStatusResponse {
-    protos.domain.ApplicationStatusGrpc application_status = 1;
+    int32 application_statu_id = 1;
+    string application_status = 2;
 }
