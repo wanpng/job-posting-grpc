@@ -14,7 +14,7 @@ message GetJobSeekerJobsRequest {
 }
 
 message GetJobSeekerSkillsRequest {
-    string skill_id = 1;
+    string candidate_skill_id = 1;
 }
 
 message GetJobSeekerJobsResponse {
@@ -23,9 +23,13 @@ message GetJobSeekerJobsResponse {
 }
 
 message GetJobSeekerSkillsResponse {
-    string status = 1;
+    repeated CandidateSkill candidateSkills = 1;
 }
 
 message Job {
     string job_id = 1;
+}
+
+message CandidateSkill {
+    string skill_id = 1;
 }
