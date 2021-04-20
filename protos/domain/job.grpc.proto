@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package protos.domain;
+
+option go_package = "github.com/wanpng/job-posting-grpc/grpc/domain";
+
+message JobGrpc {
+    string id = 1;
+    string job_title = 2;
+}
