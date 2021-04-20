@@ -4,6 +4,7 @@ package service
 
 import (
 	context "context"
+	domain "github.com/wanpng/job-posting-grpc/grpc/domain"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -19,7 +20,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type JobPostingServiceClient interface {
 	GetJobSeekerHiddenAndSavedJobsInSearch(ctx context.Context, in *GetJobSeekerJobsRequest, opts ...grpc.CallOption) (*GetJobSeekerJobsResponse, error)
-	GetJobSeekerSkills(ctx context.Context, in *GetJobSeekerSkillsRequest, opts ...grpc.CallOption) (*GetJobSeekerSkillsResponse, error)
+	SaveJobSeekerSkills(ctx context.Context, in *SaveJobSeekerSkillsRequest, opts ...grpc.CallOption) (*domain.ErrorGrpc, error)
 }
 
 type jobPostingServiceClient struct {
@@ -39,9 +40,9 @@ func (c *jobPostingServiceClient) GetJobSeekerHiddenAndSavedJobsInSearch(ctx con
 	return out, nil
 }
 
-func (c *jobPostingServiceClient) GetJobSeekerSkills(ctx context.Context, in *GetJobSeekerSkillsRequest, opts ...grpc.CallOption) (*GetJobSeekerSkillsResponse, error) {
-	out := new(GetJobSeekerSkillsResponse)
-	err := c.cc.Invoke(ctx, "/protos.service.JobPostingService/GetJobSeekerSkills", in, out, opts...)
+func (c *jobPostingServiceClient) SaveJobSeekerSkills(ctx context.Context, in *SaveJobSeekerSkillsRequest, opts ...grpc.CallOption) (*domain.ErrorGrpc, error) {
+	out := new(domain.ErrorGrpc)
+	err := c.cc.Invoke(ctx, "/protos.service.JobPostingService/SaveJobSeekerSkills", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -53,7 +54,7 @@ func (c *jobPostingServiceClient) GetJobSeekerSkills(ctx context.Context, in *Ge
 // for forward compatibility
 type JobPostingServiceServer interface {
 	GetJobSeekerHiddenAndSavedJobsInSearch(context.Context, *GetJobSeekerJobsRequest) (*GetJobSeekerJobsResponse, error)
-	GetJobSeekerSkills(context.Context, *GetJobSeekerSkillsRequest) (*GetJobSeekerSkillsResponse, error)
+	SaveJobSeekerSkills(context.Context, *SaveJobSeekerSkillsRequest) (*domain.ErrorGrpc, error)
 	mustEmbedUnimplementedJobPostingServiceServer()
 }
 
@@ -64,8 +65,8 @@ type UnimplementedJobPostingServiceServer struct {
 func (UnimplementedJobPostingServiceServer) GetJobSeekerHiddenAndSavedJobsInSearch(context.Context, *GetJobSeekerJobsRequest) (*GetJobSeekerJobsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetJobSeekerHiddenAndSavedJobsInSearch not implemented")
 }
-func (UnimplementedJobPostingServiceServer) GetJobSeekerSkills(context.Context, *GetJobSeekerSkillsRequest) (*GetJobSeekerSkillsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetJobSeekerSkills not implemented")
+func (UnimplementedJobPostingServiceServer) SaveJobSeekerSkills(context.Context, *SaveJobSeekerSkillsRequest) (*domain.ErrorGrpc, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SaveJobSeekerSkills not implemented")
 }
 func (UnimplementedJobPostingServiceServer) mustEmbedUnimplementedJobPostingServiceServer() {}
 
@@ -98,20 +99,20 @@ func _JobPostingService_GetJobSeekerHiddenAndSavedJobsInSearch_Handler(srv inter
 	return interceptor(ctx, in, info, handler)
 }
 
-func _JobPostingService_GetJobSeekerSkills_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetJobSeekerSkillsRequest)
+func _JobPostingService_SaveJobSeekerSkills_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SaveJobSeekerSkillsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(JobPostingServiceServer).GetJobSeekerSkills(ctx, in)
+		return srv.(JobPostingServiceServer).SaveJobSeekerSkills(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/protos.service.JobPostingService/GetJobSeekerSkills",
+		FullMethod: "/protos.service.JobPostingService/SaveJobSeekerSkills",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(JobPostingServiceServer).GetJobSeekerSkills(ctx, req.(*GetJobSeekerSkillsRequest))
+		return srv.(JobPostingServiceServer).SaveJobSeekerSkills(ctx, req.(*SaveJobSeekerSkillsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -128,8 +129,8 @@ var JobPostingService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _JobPostingService_GetJobSeekerHiddenAndSavedJobsInSearch_Handler,
 		},
 		{
-			MethodName: "GetJobSeekerSkills",
-			Handler:    _JobPostingService_GetJobSeekerSkills_Handler,
+			MethodName: "SaveJobSeekerSkills",
+			Handler:    _JobPostingService_SaveJobSeekerSkills_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
