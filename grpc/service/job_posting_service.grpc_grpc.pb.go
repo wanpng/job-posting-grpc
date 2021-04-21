@@ -22,7 +22,7 @@ type JobPostingServiceClient interface {
 	GetJobSeekerHiddenAndSavedJobsInSearch(ctx context.Context, in *GetJobSeekerJobsRequest, opts ...grpc.CallOption) (*GetJobSeekerJobsResponse, error)
 	GetApplicationStatus(ctx context.Context, in *GetApplicationStatusRequest, opts ...grpc.CallOption) (*GetApplicationStatusResponse, error)
 	GetJob(ctx context.Context, in *GetJobRequest, opts ...grpc.CallOption) (*GetJobResponse, error)
-	SaveJobSeekerSkills(ctx context.Context, in *domain.JobseekerSkill, opts ...grpc.CallOption) (*domain.Error, error)
+	SaveJobSeekerSkills(ctx context.Context, in *domain.JobseekerSkill, opts ...grpc.CallOption) (*domain.ErrorGrpc, error)
 }
 
 type jobPostingServiceClient struct {
@@ -60,8 +60,8 @@ func (c *jobPostingServiceClient) GetJob(ctx context.Context, in *GetJobRequest,
 	return out, nil
 }
 
-func (c *jobPostingServiceClient) SaveJobSeekerSkills(ctx context.Context, in *domain.JobseekerSkill, opts ...grpc.CallOption) (*domain.Error, error) {
-	out := new(domain.Error)
+func (c *jobPostingServiceClient) SaveJobSeekerSkills(ctx context.Context, in *domain.JobseekerSkill, opts ...grpc.CallOption) (*domain.ErrorGrpc, error) {
+	out := new(domain.ErrorGrpc)
 	err := c.cc.Invoke(ctx, "/protos.service.JobPostingService/SaveJobSeekerSkills", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,7 @@ type JobPostingServiceServer interface {
 	GetJobSeekerHiddenAndSavedJobsInSearch(context.Context, *GetJobSeekerJobsRequest) (*GetJobSeekerJobsResponse, error)
 	GetApplicationStatus(context.Context, *GetApplicationStatusRequest) (*GetApplicationStatusResponse, error)
 	GetJob(context.Context, *GetJobRequest) (*GetJobResponse, error)
-	SaveJobSeekerSkills(context.Context, *domain.JobseekerSkill) (*domain.Error, error)
+	SaveJobSeekerSkills(context.Context, *domain.JobseekerSkill) (*domain.ErrorGrpc, error)
 	mustEmbedUnimplementedJobPostingServiceServer()
 }
 
@@ -93,7 +93,7 @@ func (UnimplementedJobPostingServiceServer) GetApplicationStatus(context.Context
 func (UnimplementedJobPostingServiceServer) GetJob(context.Context, *GetJobRequest) (*GetJobResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetJob not implemented")
 }
-func (UnimplementedJobPostingServiceServer) SaveJobSeekerSkills(context.Context, *domain.JobseekerSkill) (*domain.Error, error) {
+func (UnimplementedJobPostingServiceServer) SaveJobSeekerSkills(context.Context, *domain.JobseekerSkill) (*domain.ErrorGrpc, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SaveJobSeekerSkills not implemented")
 }
 func (UnimplementedJobPostingServiceServer) mustEmbedUnimplementedJobPostingServiceServer() {}
