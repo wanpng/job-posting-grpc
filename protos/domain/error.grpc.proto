@@ -4,7 +4,7 @@ package protos.domain;
 
 option go_package = "github.com/wanpng/job-posting-grpc/grpc/domain";
 
-message Error {
+message ErrorGrpc {
     int32 code = 1;
     string message = 2;
 }
