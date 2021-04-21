@@ -4,7 +4,7 @@ package protos.domain;
 
 option go_package = "github.com/wanpng/job-posting-grpc/grpc/domain";
 
-message Skill {
+message CandidateSkill {
     string skill_id = 1;
     string skill = 2;
     int32 level_id = 3;
@@ -13,5 +13,5 @@ message Skill {
 
 message CandidateSkills {
     string id = 1;
-    repeated Skill skills = 2;
+    repeated CandidateSkill skills = 2;
 }
