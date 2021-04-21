@@ -4,12 +4,15 @@ package protos.service;
 
 option go_package = "github.com/wanpng/job-posting-grpc/grpc/service";
 
+import "protos/domain/skill.grpc.proto";
 import "protos/domain/job.grpc.proto";
+import "protos/domain/error.proto";
 
 service JobPostingService {
     rpc GetJobSeekerHiddenAndSavedJobsInSearch(GetJobSeekerJobsRequest) returns (GetJobSeekerJobsResponse);
     rpc GetApplicationStatus(GetApplicationStatusRequest) returns (GetApplicationStatusResponse);
     rpc GetJob(GetJobRequest) returns (GetJobResponse);
+    rpc SaveJobSeekerSkills(protos.domain.JobseekerSkill) returns (protos.domain.Error);
 }
 
 
