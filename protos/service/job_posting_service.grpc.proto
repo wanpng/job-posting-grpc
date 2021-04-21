@@ -4,7 +4,7 @@ package protos.service;
 
 option go_package = "github.com/wanpng/job-posting-grpc/grpc/service";
 
-import "protos/domain/skill.grpc.proto";
+import "protos/domain/candidateskills.grpc.proto";
 import "protos/domain/job.grpc.proto";
 
 service JobPostingService {
