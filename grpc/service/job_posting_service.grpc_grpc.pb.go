@@ -20,7 +20,6 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type JobPostingServiceClient interface {
 	GetJobSeekerHiddenAndSavedJobsInSearch(ctx context.Context, in *GetJobSeekerJobsRequest, opts ...grpc.CallOption) (*GetJobSeekerJobsResponse, error)
-	GetApplicationStatus(ctx context.Context, in *GetApplicationStatusRequest, opts ...grpc.CallOption) (*GetApplicationStatusResponse, error)
 	GetJob(ctx context.Context, in *GetJobRequest, opts ...grpc.CallOption) (*GetJobResponse, error)
 	SaveJobSeekerSkills(ctx context.Context, in *domain.CandidateSkills, opts ...grpc.CallOption) (*domain.CandidateSkills, error)
 }
@@ -36,15 +35,6 @@ func NewJobPostingServiceClient(cc grpc.ClientConnInterface) JobPostingServiceCl
 func (c *jobPostingServiceClient) GetJobSeekerHiddenAndSavedJobsInSearch(ctx context.Context, in *GetJobSeekerJobsRequest, opts ...grpc.CallOption) (*GetJobSeekerJobsResponse, error) {
 	out := new(GetJobSeekerJobsResponse)
 	err := c.cc.Invoke(ctx, "/protos.service.JobPostingService/GetJobSeekerHiddenAndSavedJobsInSearch", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *jobPostingServiceClient) GetApplicationStatus(ctx context.Context, in *GetApplicationStatusRequest, opts ...grpc.CallOption) (*GetApplicationStatusResponse, error) {
-	out := new(GetApplicationStatusResponse)
-	err := c.cc.Invoke(ctx, "/protos.service.JobPostingService/GetApplicationStatus", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +64,6 @@ func (c *jobPostingServiceClient) SaveJobSeekerSkills(ctx context.Context, in *d
 // for forward compatibility
 type JobPostingServiceServer interface {
 	GetJobSeekerHiddenAndSavedJobsInSearch(context.Context, *GetJobSeekerJobsRequest) (*GetJobSeekerJobsResponse, error)
-	GetApplicationStatus(context.Context, *GetApplicationStatusRequest) (*GetApplicationStatusResponse, error)
 	GetJob(context.Context, *GetJobRequest) (*GetJobResponse, error)
 	SaveJobSeekerSkills(context.Context, *domain.CandidateSkills) (*domain.CandidateSkills, error)
 	mustEmbedUnimplementedJobPostingServiceServer()
@@ -86,9 +75,6 @@ type UnimplementedJobPostingServiceServer struct {
 
 func (UnimplementedJobPostingServiceServer) GetJobSeekerHiddenAndSavedJobsInSearch(context.Context, *GetJobSeekerJobsRequest) (*GetJobSeekerJobsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetJobSeekerHiddenAndSavedJobsInSearch not implemented")
-}
-func (UnimplementedJobPostingServiceServer) GetApplicationStatus(context.Context, *GetApplicationStatusRequest) (*GetApplicationStatusResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetApplicationStatus not implemented")
 }
 func (UnimplementedJobPostingServiceServer) GetJob(context.Context, *GetJobRequest) (*GetJobResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetJob not implemented")
@@ -123,24 +109,6 @@ func _JobPostingService_GetJobSeekerHiddenAndSavedJobsInSearch_Handler(srv inter
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(JobPostingServiceServer).GetJobSeekerHiddenAndSavedJobsInSearch(ctx, req.(*GetJobSeekerJobsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _JobPostingService_GetApplicationStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetApplicationStatusRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(JobPostingServiceServer).GetApplicationStatus(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/protos.service.JobPostingService/GetApplicationStatus",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(JobPostingServiceServer).GetApplicationStatus(ctx, req.(*GetApplicationStatusRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -191,10 +159,6 @@ var JobPostingService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetJobSeekerHiddenAndSavedJobsInSearch",
 			Handler:    _JobPostingService_GetJobSeekerHiddenAndSavedJobsInSearch_Handler,
-		},
-		{
-			MethodName: "GetApplicationStatus",
-			Handler:    _JobPostingService_GetApplicationStatus_Handler,
 		},
 		{
 			MethodName: "GetJob",

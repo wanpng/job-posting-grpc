@@ -9,7 +9,6 @@ import "protos/domain/job.grpc.proto";
 
 service JobPostingService {
     rpc GetJobSeekerHiddenAndSavedJobsInSearch(GetJobSeekerJobsRequest) returns (GetJobSeekerJobsResponse);
-    rpc GetApplicationStatus(GetApplicationStatusRequest) returns (GetApplicationStatusResponse);
     rpc GetJob(GetJobRequest) returns (GetJobResponse);
     rpc SaveJobSeekerSkills(protos.domain.CandidateSkills) returns (protos.domain.CandidateSkills);
 }
