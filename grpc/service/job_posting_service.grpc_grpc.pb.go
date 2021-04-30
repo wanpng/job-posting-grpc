@@ -22,6 +22,7 @@ type JobPostingServiceClient interface {
 	GetJobSeekerHiddenAndSavedJobsInSearch(ctx context.Context, in *GetJobSeekerJobsRequest, opts ...grpc.CallOption) (*GetJobSeekerJobsResponse, error)
 	GetJob(ctx context.Context, in *GetJobRequest, opts ...grpc.CallOption) (*GetJobResponse, error)
 	SaveJobSeekerSkills(ctx context.Context, in *domain.CandidateSkills, opts ...grpc.CallOption) (*domain.CandidateSkills, error)
+	GetJobUser(ctx context.Context, in *GetJobUserRequest, opts ...grpc.CallOption) (*GetJobUserResponse, error)
 }
 
 type jobPostingServiceClient struct {
@@ -59,6 +60,15 @@ func (c *jobPostingServiceClient) SaveJobSeekerSkills(ctx context.Context, in *d
 	return out, nil
 }
 
+func (c *jobPostingServiceClient) GetJobUser(ctx context.Context, in *GetJobUserRequest, opts ...grpc.CallOption) (*GetJobUserResponse, error) {
+	out := new(GetJobUserResponse)
+	err := c.cc.Invoke(ctx, "/protos.service.JobPostingService/getJobUser", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // JobPostingServiceServer is the server API for JobPostingService service.
 // All implementations must embed UnimplementedJobPostingServiceServer
 // for forward compatibility
@@ -66,6 +76,7 @@ type JobPostingServiceServer interface {
 	GetJobSeekerHiddenAndSavedJobsInSearch(context.Context, *GetJobSeekerJobsRequest) (*GetJobSeekerJobsResponse, error)
 	GetJob(context.Context, *GetJobRequest) (*GetJobResponse, error)
 	SaveJobSeekerSkills(context.Context, *domain.CandidateSkills) (*domain.CandidateSkills, error)
+	GetJobUser(context.Context, *GetJobUserRequest) (*GetJobUserResponse, error)
 	mustEmbedUnimplementedJobPostingServiceServer()
 }
 
@@ -81,6 +92,9 @@ func (UnimplementedJobPostingServiceServer) GetJob(context.Context, *GetJobReque
 }
 func (UnimplementedJobPostingServiceServer) SaveJobSeekerSkills(context.Context, *domain.CandidateSkills) (*domain.CandidateSkills, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SaveJobSeekerSkills not implemented")
+}
+func (UnimplementedJobPostingServiceServer) GetJobUser(context.Context, *GetJobUserRequest) (*GetJobUserResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetJobUser not implemented")
 }
 func (UnimplementedJobPostingServiceServer) mustEmbedUnimplementedJobPostingServiceServer() {}
 
@@ -149,6 +163,24 @@ func _JobPostingService_SaveJobSeekerSkills_Handler(srv interface{}, ctx context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _JobPostingService_GetJobUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetJobUserRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(JobPostingServiceServer).GetJobUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/protos.service.JobPostingService/getJobUser",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(JobPostingServiceServer).GetJobUser(ctx, req.(*GetJobUserRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // JobPostingService_ServiceDesc is the grpc.ServiceDesc for JobPostingService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -167,6 +199,10 @@ var JobPostingService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SaveJobSeekerSkills",
 			Handler:    _JobPostingService_SaveJobSeekerSkills_Handler,
+		},
+		{
+			MethodName: "getJobUser",
+			Handler:    _JobPostingService_GetJobUser_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -6,11 +6,13 @@ option go_package = "github.com/wanpng/job-posting-grpc/grpc/service";
 
 import "protos/domain/candidateskills.grpc.proto";
 import "protos/domain/job.grpc.proto";
+import "protos/domain/user.grpc.proto";
 
 service JobPostingService {
     rpc GetJobSeekerHiddenAndSavedJobsInSearch(GetJobSeekerJobsRequest) returns (GetJobSeekerJobsResponse);
     rpc GetJob(GetJobRequest) returns (GetJobResponse);
     rpc SaveJobSeekerSkills(protos.domain.CandidateSkills) returns (protos.domain.CandidateSkills);
+    rpc getJobUser(GetJobUserRequest) returns (GetJobUserResponse);
 }
 
 
@@ -43,4 +45,12 @@ message GetJobRequest {
 
 message GetJobResponse {
     protos.domain.JobGrpc job = 1;
+}
+
+message GetJobUserRequest {
+    string user_id = 1;
+}
+
+message GetJobUserResponse {
+    protos.domain.UserGrpc user = 1;
 }
