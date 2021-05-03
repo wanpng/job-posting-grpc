@@ -7,4 +7,10 @@ option go_package = "github.com/wanpng/job-posting-grpc/grpc/domain";
 message JobGrpc {
     string id = 1;
     string job_title = 2;
+    int32 employment_type_id = 3;
+    string employment_type = 4;
+    int32  career_level_id = 5;
+    string career_level = 6;
+    int32 province_id = 7;
+    string province = 8;
 }
