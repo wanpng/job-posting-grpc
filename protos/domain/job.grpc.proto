@@ -13,4 +13,6 @@ message JobGrpc {
     string career_level = 6;
     int32 province_id = 7;
     string province = 8;
+    int32 publish_status_id = 9;
+    string publish_status = 10;
 }
