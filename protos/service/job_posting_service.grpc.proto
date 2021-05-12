@@ -57,7 +57,7 @@ message GetJobUserResponse {
 }
 
 message SearchJobRequest {
-    string employer_id = 1;
+    repeated string employer_ids = 1;
     string keyword = 2;
 }
 
