@@ -14,6 +14,7 @@ service JobPostingService {
     rpc SaveJobSeekerSkills(protos.domain.CandidateSkills) returns (protos.domain.CandidateSkills);
     rpc getJobUser(GetJobUserRequest) returns (GetJobUserResponse);
     rpc SearchJob(SearchJobRequest) returns (SearchJobResponse);
+    rpc GetJobsByEmployer(GetJobsByEmployerRequest) returns (GetJobsByEmployerResponse);
 }
 
 
@@ -63,4 +64,12 @@ message SearchJobRequest {
 
 message SearchJobResponse {
     repeated string job_ids = 1;
+}
+
+message GetJobsByEmployerRequest {
+    string employer_id = 1;
+}
+
+message GetJobsByEmployerResponse {
+    protos.domain.JobGrpc job = 1;
 }
