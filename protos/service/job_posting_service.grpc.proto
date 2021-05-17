@@ -71,5 +71,5 @@ message GetJobsByEmployerRequest {
 }
 
 message GetJobsByEmployerResponse {
-    protos.domain.JobGrpc job = 1;
+    repeated Job jobs = 1;
 }
