@@ -57,6 +57,14 @@ message GetJobUserResponse {
     protos.domain.UserGrpc user = 1;
 }
 
+message UpdateJobUserRequest {
+    protos.domain.UserGrpc user = 1;
+}
+
+message UpdateJobUserResponse {
+    string user_id = 1;
+}
+
 message SearchJobRequest {
     repeated string employer_ids = 1;
     string keyword = 2;
