@@ -15,8 +15,8 @@ service JobPostingService {
     rpc getJobUser(GetJobUserRequest) returns (GetJobUserResponse);
     rpc SearchJob(SearchJobRequest) returns (SearchJobResponse);
     rpc GetJobsByEmployer(GetJobsByEmployerRequest) returns (GetJobsByEmployerResponse);
+    rpc UpdateJobUserEmployer(UpdateJobUserRequest) returns (UpdateJobUserResponse);
 }
-
 
 message GetJobSeekerJobsRequest {
     string jobseeker_id = 1;
