@@ -60,6 +60,16 @@ public final class JobPostingServiceProtos {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protos_service_GetJobUserResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protos_service_UpdateJobUserRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protos_service_UpdateJobUserRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protos_service_UpdateJobUserResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protos_service_UpdateJobUserResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protos_service_SearchJobRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -69,6 +79,16 @@ public final class JobPostingServiceProtos {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protos_service_SearchJobResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protos_service_GetJobsByEmployerRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protos_service_GetJobsByEmployerRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protos_service_GetJobsByEmployerResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protos_service_GetJobsByEmployerResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -95,24 +115,37 @@ public final class JobPostingServiceProtos {
       "\003job\030\001 \001(\0132\026.protos.domain.JobGrpc\"$\n\021Ge" +
       "tJobUserRequest\022\017\n\007user_id\030\001 \001(\t\";\n\022GetJ" +
       "obUserResponse\022%\n\004user\030\001 \001(\0132\027.protos.do" +
-      "main.UserGrpc\"9\n\020SearchJobRequest\022\024\n\014emp" +
-      "loyer_ids\030\001 \003(\t\022\017\n\007keyword\030\002 \001(\t\"$\n\021Sear" +
-      "chJobResponse\022\017\n\007job_ids\030\001 \003(\t2\327\003\n\021JobPo" +
-      "stingService\022{\n&GetJobSeekerHiddenAndSav" +
-      "edJobsInSearch\022\'.protos.service.GetJobSe" +
-      "ekerJobsRequest\032(.protos.service.GetJobS" +
-      "eekerJobsResponse\022G\n\006GetJob\022\035.protos.ser" +
-      "vice.GetJobRequest\032\036.protos.service.GetJ" +
-      "obResponse\022U\n\023SaveJobSeekerSkills\022\036.prot" +
-      "os.domain.CandidateSkills\032\036.protos.domai" +
-      "n.CandidateSkills\022S\n\ngetJobUser\022!.protos" +
-      ".service.GetJobUserRequest\032\".protos.serv" +
-      "ice.GetJobUserResponse\022P\n\tSearchJob\022 .pr" +
-      "otos.service.SearchJobRequest\032!.protos.s" +
-      "ervice.SearchJobResponseBp\n\"com.wanpng.j" +
-      "obposting.grpc.serviceB\027JobPostingServic" +
-      "eProtosP\001Z/github.com/wanpng/job-posting" +
-      "-grpc/grpc/serviceb\006proto3"
+      "main.UserGrpc\"=\n\024UpdateJobUserRequest\022%\n" +
+      "\004user\030\001 \001(\0132\027.protos.domain.UserGrpc\"(\n\025" +
+      "UpdateJobUserResponse\022\017\n\007user_id\030\001 \001(\t\"9" +
+      "\n\020SearchJobRequest\022\024\n\014employer_ids\030\001 \003(\t" +
+      "\022\017\n\007keyword\030\002 \001(\t\"$\n\021SearchJobResponse\022\017" +
+      "\n\007job_ids\030\001 \003(\t\"T\n\030GetJobsByEmployerRequ" +
+      "est\022\023\n\013employer_id\030\001 \001(\t\022\024\n\014company_name" +
+      "\030\002 \001(\t\022\r\n\005photo\030\003 \001(\t\"x\n\031GetJobsByEmploy" +
+      "erResponse\022\023\n\013employer_id\030\001 \001(\t\022\024\n\014compa" +
+      "ny_name\030\002 \001(\t\022\r\n\005photo\030\003 \001(\t\022!\n\004jobs\030\004 \003" +
+      "(\0132\023.protos.service.Job2\247\005\n\021JobPostingSe" +
+      "rvice\022{\n&GetJobSeekerHiddenAndSavedJobsI" +
+      "nSearch\022\'.protos.service.GetJobSeekerJob" +
+      "sRequest\032(.protos.service.GetJobSeekerJo" +
+      "bsResponse\022G\n\006GetJob\022\035.protos.service.Ge" +
+      "tJobRequest\032\036.protos.service.GetJobRespo" +
+      "nse\022U\n\023SaveJobSeekerSkills\022\036.protos.doma" +
+      "in.CandidateSkills\032\036.protos.domain.Candi" +
+      "dateSkills\022S\n\ngetJobUser\022!.protos.servic" +
+      "e.GetJobUserRequest\032\".protos.service.Get" +
+      "JobUserResponse\022P\n\tSearchJob\022 .protos.se" +
+      "rvice.SearchJobRequest\032!.protos.service." +
+      "SearchJobResponse\022h\n\021GetJobsByEmployer\022(" +
+      ".protos.service.GetJobsByEmployerRequest" +
+      "\032).protos.service.GetJobsByEmployerRespo" +
+      "nse\022d\n\025UpdateJobUserEmployer\022$.protos.se" +
+      "rvice.UpdateJobUserRequest\032%.protos.serv" +
+      "ice.UpdateJobUserResponseBp\n\"com.wanpng." +
+      "jobposting.grpc.serviceB\027JobPostingServi" +
+      "ceProtosP\001Z/github.com/wanpng/job-postin" +
+      "g-grpc/grpc/serviceb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -175,18 +208,42 @@ public final class JobPostingServiceProtos {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_service_GetJobUserResponse_descriptor,
         new java.lang.String[] { "User", });
-    internal_static_protos_service_SearchJobRequest_descriptor =
+    internal_static_protos_service_UpdateJobUserRequest_descriptor =
       getDescriptor().getMessageTypes().get(9);
+    internal_static_protos_service_UpdateJobUserRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protos_service_UpdateJobUserRequest_descriptor,
+        new java.lang.String[] { "User", });
+    internal_static_protos_service_UpdateJobUserResponse_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_protos_service_UpdateJobUserResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protos_service_UpdateJobUserResponse_descriptor,
+        new java.lang.String[] { "UserId", });
+    internal_static_protos_service_SearchJobRequest_descriptor =
+      getDescriptor().getMessageTypes().get(11);
     internal_static_protos_service_SearchJobRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_service_SearchJobRequest_descriptor,
         new java.lang.String[] { "EmployerIds", "Keyword", });
     internal_static_protos_service_SearchJobResponse_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_protos_service_SearchJobResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_service_SearchJobResponse_descriptor,
         new java.lang.String[] { "JobIds", });
+    internal_static_protos_service_GetJobsByEmployerRequest_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_protos_service_GetJobsByEmployerRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protos_service_GetJobsByEmployerRequest_descriptor,
+        new java.lang.String[] { "EmployerId", "CompanyName", "Photo", });
+    internal_static_protos_service_GetJobsByEmployerResponse_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_protos_service_GetJobsByEmployerResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protos_service_GetJobsByEmployerResponse_descriptor,
+        new java.lang.String[] { "EmployerId", "CompanyName", "Photo", "Jobs", });
     com.wanpng.jobposting.grpc.domain.CandidateSkillProtos.getDescriptor();
     com.wanpng.jobposting.grpc.domain.JobGrpcProtos.getDescriptor();
     com.wanpng.jobposting.grpc.domain.UserGrpcProtos.getDescriptor();

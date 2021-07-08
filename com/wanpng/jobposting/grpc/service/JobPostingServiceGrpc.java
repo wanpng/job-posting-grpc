@@ -169,6 +169,68 @@ public final class JobPostingServiceGrpc {
     return getSearchJobMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.wanpng.jobposting.grpc.service.GetJobsByEmployerRequest,
+      com.wanpng.jobposting.grpc.service.GetJobsByEmployerResponse> getGetJobsByEmployerMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetJobsByEmployer",
+      requestType = com.wanpng.jobposting.grpc.service.GetJobsByEmployerRequest.class,
+      responseType = com.wanpng.jobposting.grpc.service.GetJobsByEmployerResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.wanpng.jobposting.grpc.service.GetJobsByEmployerRequest,
+      com.wanpng.jobposting.grpc.service.GetJobsByEmployerResponse> getGetJobsByEmployerMethod() {
+    io.grpc.MethodDescriptor<com.wanpng.jobposting.grpc.service.GetJobsByEmployerRequest, com.wanpng.jobposting.grpc.service.GetJobsByEmployerResponse> getGetJobsByEmployerMethod;
+    if ((getGetJobsByEmployerMethod = JobPostingServiceGrpc.getGetJobsByEmployerMethod) == null) {
+      synchronized (JobPostingServiceGrpc.class) {
+        if ((getGetJobsByEmployerMethod = JobPostingServiceGrpc.getGetJobsByEmployerMethod) == null) {
+          JobPostingServiceGrpc.getGetJobsByEmployerMethod = getGetJobsByEmployerMethod =
+              io.grpc.MethodDescriptor.<com.wanpng.jobposting.grpc.service.GetJobsByEmployerRequest, com.wanpng.jobposting.grpc.service.GetJobsByEmployerResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetJobsByEmployer"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.wanpng.jobposting.grpc.service.GetJobsByEmployerRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.wanpng.jobposting.grpc.service.GetJobsByEmployerResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new JobPostingServiceMethodDescriptorSupplier("GetJobsByEmployer"))
+              .build();
+        }
+      }
+    }
+    return getGetJobsByEmployerMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.wanpng.jobposting.grpc.service.UpdateJobUserRequest,
+      com.wanpng.jobposting.grpc.service.UpdateJobUserResponse> getUpdateJobUserEmployerMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "UpdateJobUserEmployer",
+      requestType = com.wanpng.jobposting.grpc.service.UpdateJobUserRequest.class,
+      responseType = com.wanpng.jobposting.grpc.service.UpdateJobUserResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.wanpng.jobposting.grpc.service.UpdateJobUserRequest,
+      com.wanpng.jobposting.grpc.service.UpdateJobUserResponse> getUpdateJobUserEmployerMethod() {
+    io.grpc.MethodDescriptor<com.wanpng.jobposting.grpc.service.UpdateJobUserRequest, com.wanpng.jobposting.grpc.service.UpdateJobUserResponse> getUpdateJobUserEmployerMethod;
+    if ((getUpdateJobUserEmployerMethod = JobPostingServiceGrpc.getUpdateJobUserEmployerMethod) == null) {
+      synchronized (JobPostingServiceGrpc.class) {
+        if ((getUpdateJobUserEmployerMethod = JobPostingServiceGrpc.getUpdateJobUserEmployerMethod) == null) {
+          JobPostingServiceGrpc.getUpdateJobUserEmployerMethod = getUpdateJobUserEmployerMethod =
+              io.grpc.MethodDescriptor.<com.wanpng.jobposting.grpc.service.UpdateJobUserRequest, com.wanpng.jobposting.grpc.service.UpdateJobUserResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateJobUserEmployer"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.wanpng.jobposting.grpc.service.UpdateJobUserRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.wanpng.jobposting.grpc.service.UpdateJobUserResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new JobPostingServiceMethodDescriptorSupplier("UpdateJobUserEmployer"))
+              .build();
+        }
+      }
+    }
+    return getUpdateJobUserEmployerMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -252,6 +314,20 @@ public final class JobPostingServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSearchJobMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void getJobsByEmployer(com.wanpng.jobposting.grpc.service.GetJobsByEmployerRequest request,
+        io.grpc.stub.StreamObserver<com.wanpng.jobposting.grpc.service.GetJobsByEmployerResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetJobsByEmployerMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void updateJobUserEmployer(com.wanpng.jobposting.grpc.service.UpdateJobUserRequest request,
+        io.grpc.stub.StreamObserver<com.wanpng.jobposting.grpc.service.UpdateJobUserResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateJobUserEmployerMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -289,6 +365,20 @@ public final class JobPostingServiceGrpc {
                 com.wanpng.jobposting.grpc.service.SearchJobRequest,
                 com.wanpng.jobposting.grpc.service.SearchJobResponse>(
                   this, METHODID_SEARCH_JOB)))
+          .addMethod(
+            getGetJobsByEmployerMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.wanpng.jobposting.grpc.service.GetJobsByEmployerRequest,
+                com.wanpng.jobposting.grpc.service.GetJobsByEmployerResponse>(
+                  this, METHODID_GET_JOBS_BY_EMPLOYER)))
+          .addMethod(
+            getUpdateJobUserEmployerMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.wanpng.jobposting.grpc.service.UpdateJobUserRequest,
+                com.wanpng.jobposting.grpc.service.UpdateJobUserResponse>(
+                  this, METHODID_UPDATE_JOB_USER_EMPLOYER)))
           .build();
     }
   }
@@ -346,6 +436,22 @@ public final class JobPostingServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getSearchJobMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getJobsByEmployer(com.wanpng.jobposting.grpc.service.GetJobsByEmployerRequest request,
+        io.grpc.stub.StreamObserver<com.wanpng.jobposting.grpc.service.GetJobsByEmployerResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetJobsByEmployerMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void updateJobUserEmployer(com.wanpng.jobposting.grpc.service.UpdateJobUserRequest request,
+        io.grpc.stub.StreamObserver<com.wanpng.jobposting.grpc.service.UpdateJobUserResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getUpdateJobUserEmployerMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -395,6 +501,20 @@ public final class JobPostingServiceGrpc {
     public com.wanpng.jobposting.grpc.service.SearchJobResponse searchJob(com.wanpng.jobposting.grpc.service.SearchJobRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getSearchJobMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.wanpng.jobposting.grpc.service.GetJobsByEmployerResponse getJobsByEmployer(com.wanpng.jobposting.grpc.service.GetJobsByEmployerRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetJobsByEmployerMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.wanpng.jobposting.grpc.service.UpdateJobUserResponse updateJobUserEmployer(com.wanpng.jobposting.grpc.service.UpdateJobUserRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getUpdateJobUserEmployerMethod(), getCallOptions(), request);
     }
   }
 
@@ -451,6 +571,22 @@ public final class JobPostingServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getSearchJobMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.wanpng.jobposting.grpc.service.GetJobsByEmployerResponse> getJobsByEmployer(
+        com.wanpng.jobposting.grpc.service.GetJobsByEmployerRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetJobsByEmployerMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.wanpng.jobposting.grpc.service.UpdateJobUserResponse> updateJobUserEmployer(
+        com.wanpng.jobposting.grpc.service.UpdateJobUserRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getUpdateJobUserEmployerMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_JOB_SEEKER_HIDDEN_AND_SAVED_JOBS_IN_SEARCH = 0;
@@ -458,6 +594,8 @@ public final class JobPostingServiceGrpc {
   private static final int METHODID_SAVE_JOB_SEEKER_SKILLS = 2;
   private static final int METHODID_GET_JOB_USER = 3;
   private static final int METHODID_SEARCH_JOB = 4;
+  private static final int METHODID_GET_JOBS_BY_EMPLOYER = 5;
+  private static final int METHODID_UPDATE_JOB_USER_EMPLOYER = 6;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -495,6 +633,14 @@ public final class JobPostingServiceGrpc {
         case METHODID_SEARCH_JOB:
           serviceImpl.searchJob((com.wanpng.jobposting.grpc.service.SearchJobRequest) request,
               (io.grpc.stub.StreamObserver<com.wanpng.jobposting.grpc.service.SearchJobResponse>) responseObserver);
+          break;
+        case METHODID_GET_JOBS_BY_EMPLOYER:
+          serviceImpl.getJobsByEmployer((com.wanpng.jobposting.grpc.service.GetJobsByEmployerRequest) request,
+              (io.grpc.stub.StreamObserver<com.wanpng.jobposting.grpc.service.GetJobsByEmployerResponse>) responseObserver);
+          break;
+        case METHODID_UPDATE_JOB_USER_EMPLOYER:
+          serviceImpl.updateJobUserEmployer((com.wanpng.jobposting.grpc.service.UpdateJobUserRequest) request,
+              (io.grpc.stub.StreamObserver<com.wanpng.jobposting.grpc.service.UpdateJobUserResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -562,6 +708,8 @@ public final class JobPostingServiceGrpc {
               .addMethod(getSaveJobSeekerSkillsMethod())
               .addMethod(getGetJobUserMethod())
               .addMethod(getSearchJobMethod())
+              .addMethod(getGetJobsByEmployerMethod())
+              .addMethod(getUpdateJobUserEmployerMethod())
               .build();
         }
       }
