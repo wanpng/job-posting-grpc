@@ -3,6 +3,9 @@ syntax = "proto3";
 package protos.domain;
 
 option go_package = "github.com/wanpng/job-posting-grpc/grpc/domain";
+option java_multiple_files = true;
+option java_package = "com.wanpng.jobposting.grpc.domain";
+option java_outer_classname = "CandidateSkillProtos";
 
 message CandidateSkill {
     string skill_id = 1;

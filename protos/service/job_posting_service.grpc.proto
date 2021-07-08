@@ -3,6 +3,9 @@ syntax = "proto3";
 package protos.service;
 
 option go_package = "github.com/wanpng/job-posting-grpc/grpc/service";
+option java_multiple_files = true;
+option java_package = "com.wanpng.jobposting.grpc.service";
+option java_outer_classname = "JobPostingServiceProtos";
 
 import "protos/domain/candidateskills.grpc.proto";
 import "protos/domain/job.grpc.proto";
