@@ -80,6 +80,11 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(com.wanpng.jobposting.grpc.service.Job.parser(), extensionRegistry));
             break;
           }
+          case 40: {
+
+            isLanco_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -269,6 +274,17 @@ private static final long serialVersionUID = 0L;
     return jobs_.get(index);
   }
 
+  public static final int IS_LANCO_FIELD_NUMBER = 5;
+  private boolean isLanco_;
+  /**
+   * <code>bool is_lanco = 5;</code>
+   * @return The isLanco.
+   */
+  @java.lang.Override
+  public boolean getIsLanco() {
+    return isLanco_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -295,6 +311,9 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < jobs_.size(); i++) {
       output.writeMessage(4, jobs_.get(i));
     }
+    if (isLanco_ != false) {
+      output.writeBool(5, isLanco_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -316,6 +335,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < jobs_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, jobs_.get(i));
+    }
+    if (isLanco_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(5, isLanco_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -340,6 +363,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPhoto())) return false;
     if (!getJobsList()
         .equals(other.getJobsList())) return false;
+    if (getIsLanco()
+        != other.getIsLanco()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -361,6 +386,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + JOBS_FIELD_NUMBER;
       hash = (53 * hash) + getJobsList().hashCode();
     }
+    hash = (37 * hash) + IS_LANCO_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIsLanco());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -507,6 +535,8 @@ private static final long serialVersionUID = 0L;
       } else {
         jobsBuilder_.clear();
       }
+      isLanco_ = false;
+
       return this;
     }
 
@@ -546,6 +576,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.jobs_ = jobsBuilder_.build();
       }
+      result.isLanco_ = isLanco_;
       onBuilt();
       return result;
     }
@@ -631,6 +662,9 @@ private static final long serialVersionUID = 0L;
             jobsBuilder_.addAllMessages(other.jobs_);
           }
         }
+      }
+      if (other.getIsLanco() != false) {
+        setIsLanco(other.getIsLanco());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1128,6 +1162,37 @@ private static final long serialVersionUID = 0L;
         jobs_ = null;
       }
       return jobsBuilder_;
+    }
+
+    private boolean isLanco_ ;
+    /**
+     * <code>bool is_lanco = 5;</code>
+     * @return The isLanco.
+     */
+    @java.lang.Override
+    public boolean getIsLanco() {
+      return isLanco_;
+    }
+    /**
+     * <code>bool is_lanco = 5;</code>
+     * @param value The isLanco to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIsLanco(boolean value) {
+      
+      isLanco_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool is_lanco = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIsLanco() {
+      
+      isLanco_ = false;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

@@ -42,4 +42,10 @@ public interface GetJobsByEmployerRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getPhotoBytes();
+
+  /**
+   * <code>bool is_lanco = 4;</code>
+   * @return The isLanco.
+   */
+  boolean getIsLanco();
 }
