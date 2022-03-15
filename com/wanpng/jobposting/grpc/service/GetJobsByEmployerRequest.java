@@ -229,13 +229,13 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getEmployerIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(employerId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, employerId_);
     }
-    if (!getCompanyNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(companyName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, companyName_);
     }
-    if (!getPhotoBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(photo_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, photo_);
     }
     unknownFields.writeTo(output);
@@ -247,13 +247,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getEmployerIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(employerId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, employerId_);
     }
-    if (!getCompanyNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(companyName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, companyName_);
     }
-    if (!getPhotoBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(photo_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, photo_);
     }
     size += unknownFields.getSerializedSize();
