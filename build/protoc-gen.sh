@@ -4,8 +4,6 @@ export PATH=$PATH:$GOPATH/bin
 SRC_DIR=$(pwd)
 DST_DIR=$(pwd)
 
-echo $SRC_DIR
-echo $SRC_DIR
 echo "OS:" $OSTYPE "[compiling protocol buffers]"
 
 protoc -I=$SRC_DIR --go_out=$GOPATH/src --java_out=$DST_DIR $SRC_DIR/protos/domain/*.proto
