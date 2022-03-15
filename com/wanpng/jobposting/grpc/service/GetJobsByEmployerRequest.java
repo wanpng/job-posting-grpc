@@ -69,6 +69,11 @@ private static final long serialVersionUID = 0L;
             photo_ = s;
             break;
           }
+          case 32: {
+
+            isLanco_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -215,6 +220,17 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int IS_LANCO_FIELD_NUMBER = 4;
+  private boolean isLanco_;
+  /**
+   * <code>bool is_lanco = 4;</code>
+   * @return The isLanco.
+   */
+  @java.lang.Override
+  public boolean getIsLanco() {
+    return isLanco_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -229,14 +245,17 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getEmployerIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(employerId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, employerId_);
     }
-    if (!getCompanyNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(companyName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, companyName_);
     }
-    if (!getPhotoBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(photo_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, photo_);
+    }
+    if (isLanco_ != false) {
+      output.writeBool(4, isLanco_);
     }
     unknownFields.writeTo(output);
   }
@@ -247,14 +266,18 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getEmployerIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(employerId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, employerId_);
     }
-    if (!getCompanyNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(companyName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, companyName_);
     }
-    if (!getPhotoBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(photo_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, photo_);
+    }
+    if (isLanco_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(4, isLanco_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -277,6 +300,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCompanyName())) return false;
     if (!getPhoto()
         .equals(other.getPhoto())) return false;
+    if (getIsLanco()
+        != other.getIsLanco()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -294,6 +319,9 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getCompanyName().hashCode();
     hash = (37 * hash) + PHOTO_FIELD_NUMBER;
     hash = (53 * hash) + getPhoto().hashCode();
+    hash = (37 * hash) + IS_LANCO_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIsLanco());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -433,6 +461,8 @@ private static final long serialVersionUID = 0L;
 
       photo_ = "";
 
+      isLanco_ = false;
+
       return this;
     }
 
@@ -462,6 +492,7 @@ private static final long serialVersionUID = 0L;
       result.employerId_ = employerId_;
       result.companyName_ = companyName_;
       result.photo_ = photo_;
+      result.isLanco_ = isLanco_;
       onBuilt();
       return result;
     }
@@ -521,6 +552,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getPhoto().isEmpty()) {
         photo_ = other.photo_;
         onChanged();
+      }
+      if (other.getIsLanco() != false) {
+        setIsLanco(other.getIsLanco());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -775,6 +809,37 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       photo_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean isLanco_ ;
+    /**
+     * <code>bool is_lanco = 4;</code>
+     * @return The isLanco.
+     */
+    @java.lang.Override
+    public boolean getIsLanco() {
+      return isLanco_;
+    }
+    /**
+     * <code>bool is_lanco = 4;</code>
+     * @param value The isLanco to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIsLanco(boolean value) {
+      
+      isLanco_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool is_lanco = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIsLanco() {
+      
+      isLanco_ = false;
       onChanged();
       return this;
     }

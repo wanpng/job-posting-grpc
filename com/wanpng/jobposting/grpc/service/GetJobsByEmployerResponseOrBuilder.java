@@ -66,4 +66,10 @@ public interface GetJobsByEmployerResponseOrBuilder extends
    */
   com.wanpng.jobposting.grpc.service.JobOrBuilder getJobsOrBuilder(
       int index);
+
+  /**
+   * <code>bool is_lanco = 5;</code>
+   * @return The isLanco.
+   */
+  boolean getIsLanco();
 }

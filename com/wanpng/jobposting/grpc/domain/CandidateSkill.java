@@ -245,16 +245,16 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getSkillIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(skillId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, skillId_);
     }
-    if (!getSkillBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(skill_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, skill_);
     }
     if (levelId_ != 0) {
       output.writeInt32(3, levelId_);
     }
-    if (!getLevelBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(level_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, level_);
     }
     unknownFields.writeTo(output);
@@ -266,17 +266,17 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getSkillIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(skillId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, skillId_);
     }
-    if (!getSkillBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(skill_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, skill_);
     }
     if (levelId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(3, levelId_);
     }
-    if (!getLevelBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(level_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, level_);
     }
     size += unknownFields.getSerializedSize();

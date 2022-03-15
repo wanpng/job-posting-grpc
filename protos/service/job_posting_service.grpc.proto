@@ -81,6 +81,7 @@ message GetJobsByEmployerRequest {
     string employer_id = 1;
     string company_name = 2;
     string photo = 3;
+    bool is_lanco = 4;
 }
 
 message GetJobsByEmployerResponse {
@@ -88,4 +89,5 @@ message GetJobsByEmployerResponse {
     string company_name = 2;
     string photo = 3;
     repeated Job jobs = 4;
+    bool is_lanco = 5;
 }
